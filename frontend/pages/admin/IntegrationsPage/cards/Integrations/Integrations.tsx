@@ -411,8 +411,8 @@ const Integrations = (): JSX.Element => {
           columnConfigs={tableHeaders}
           data={tableData}
           isLoading={isLoadingIntegrations}
-          defaultSortHeader={"name"}
-          defaultSortDirection={"asc"}
+          defaultSortHeader="name"
+          defaultSortDirection="asc"
           actionButton={{
             name: "add integration",
             buttonText: "Add integration",
@@ -420,7 +420,7 @@ const Integrations = (): JSX.Element => {
             onActionButtonClick: toggleAddIntegrationModal,
             hideButton: !tableData?.length,
           }}
-          resultsTitle={"integrations"}
+          resultsTitle="integrations"
           emptyComponent={() =>
             EmptyTable({
               graphicName: emptyState().graphicName,

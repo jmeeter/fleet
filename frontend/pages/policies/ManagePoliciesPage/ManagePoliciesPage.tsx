@@ -766,7 +766,7 @@ const ManagePolicyPage = ({
               showInheritedTable,
               globalPoliciesCount
             )}
-            caretPosition={"before"}
+            caretPosition="before"
             tooltipContent={
               <>
                 &quot;All teams&quot; policies are checked
