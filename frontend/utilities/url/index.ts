@@ -9,6 +9,7 @@ import {
   HOSTS_QUERY_PARAMS,
   MacSettingsStatusQueryParam,
 } from "services/entities/hosts";
+import vulnerability from "interfaces/vulnerability";
 
 type QueryValues = string | number | boolean | undefined | null;
 export type QueryParams = Record<string, QueryValues>;
@@ -35,6 +36,7 @@ interface IMutuallyExclusiveHostParams {
   osVersionId?: number;
   osName?: string;
   osVersion?: string;
+  vulnerability?: string;
   osSettings?: MdmProfileStatus;
   diskEncryptionStatus?: DiskEncryptionStatus;
   bootstrapPackageStatus?: BootstrapPackageStatus;
@@ -145,6 +147,8 @@ export const reconcileMutuallyExclusiveHostParams = ({
       return { os_version_id: osVersionId };
     case !!osName && !!osVersion:
       return { os_name: osName, os_version: osVersion };
+    case !!vulnerability:
+      return { vulnerability };
     case !!lowDiskSpaceHosts:
       return { low_disk_space: lowDiskSpaceHosts };
     case !!osSettings:
